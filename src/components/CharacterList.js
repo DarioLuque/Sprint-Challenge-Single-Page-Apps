@@ -6,11 +6,23 @@ import SearchForm from "./SearchForm";
 import styled from 'styled-components';
 
 export default function CharacterList() {
-  const Homebutton = styled.a`
+  const Tabs = styled.div`
+  a {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  `;
+
+  const Buttons = styled.a`
     font-size: 1.5rem;
     font-family: 'Oswald', sans-serif;
+    color: black;
+
+    a {
     text-decoration: none;
-  `;
+    }
+    `;
+    
 
   // TODO: Add useState to track data from useEffect
   const [characters, setCharacters] = useState([]);
@@ -30,11 +42,21 @@ export default function CharacterList() {
   return (
     <section className="character-list">
       <h2>Character List</h2>
-      <Homebutton>
+      <Tabs>
+      <Buttons>
       <Link className="main-buttons" to={"/"}>
         Home
       </Link>
-      </Homebutton>
+      <Link className="main-buttons" to={"/locations"}>
+        Locations
+      </Link>
+      <Link className="main-buttons" to={"/characters"}>
+        Characters
+      </Link>
+      </Buttons>
+      </Tabs>
+
+
       <SearchForm search={search} characters={characters} />
       {filteredData.map(char => {
         return <CharacterCard key={char.id} character={char} />;
