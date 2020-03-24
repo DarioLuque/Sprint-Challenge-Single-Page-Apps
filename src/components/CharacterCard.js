@@ -13,6 +13,10 @@ export default function CharacterCard(props) {
     justify-content: space-between;
     font-family: 'Oswald', sans-serif;
     box-shadow:20px 20px 10px grey;
+
+    &:hover {
+      border: 3px solid #4dcd32;
+    }
     `;
 
   const CardImg = styled.img`

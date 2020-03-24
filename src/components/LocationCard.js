@@ -7,7 +7,6 @@ export default function LocationCard(props) {
     display: flex;
     flex-direction: column;
     margin: 2%;
-
     
   `;
 
@@ -19,6 +18,7 @@ export default function LocationCard(props) {
     
     &:hover {
       border: 2px solid #4dcd32;
+      background: white;
     }
     
     h3 {

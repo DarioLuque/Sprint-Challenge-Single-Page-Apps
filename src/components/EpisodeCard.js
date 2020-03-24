@@ -18,6 +18,7 @@ export default function EpisodeCard(props) {
     
     &:hover {
       border: 2px solid #4dcd32;
+      background: white;
     }
     
     h3 {
