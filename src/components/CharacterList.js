@@ -55,11 +55,13 @@ export default function CharacterList() {
             <Link to={"/"}>
               Home
             </Link>
-            <Link to={"/locations"}>
-              Locations
-            </Link>
+
             <Link to={"/characters"}>
               Characters
+            </Link>
+
+            <Link to={"/locations"}>
+              Locations
             </Link>
 
             <Link to={"/episodes"}>
@@ -67,12 +69,13 @@ export default function CharacterList() {
             </Link>
           </Buttons>
         </Tabs>
-    </MainSection>
-    
-    <SearchForm search={search} characters={characters} />
+        <SearchForm search={search} characters={characters} />
     {filteredData.map(char => {
       return <CharacterCard key={char.id} character={char} />;
     })}
+    </MainSection>
+    
+
     </div>
   );
 }

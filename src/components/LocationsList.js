@@ -29,6 +29,7 @@ export default function LocationsList() {
     }
     `;
 
+
   const [locationData, setLocation] = useState([]);
 
   useEffect(() => {
@@ -52,11 +53,13 @@ export default function LocationsList() {
             <Link to={"/"}>
               Home
             </Link>
-            <Link to={"/locations"}>
-              Locations
-            </Link>
+
             <Link to={"/characters"}>
               Characters
+            </Link>
+
+            <Link to={"/locations"}>
+              Locations
             </Link>
 
             <Link to={"/episodes"}>
@@ -64,14 +67,16 @@ export default function LocationsList() {
             </Link>
           </Buttons>
         </Tabs>
-    </MainSection>
-        <div>{locationData.map(location => (
+        {locationData.map(location => (
           <LocationCard
             name={location.name}
             type={location.type}
             dimension={location.dimension}
           />
-        ))}</div>
+        ))}
+    </MainSection>
+
+          
     </div>
   );
 }

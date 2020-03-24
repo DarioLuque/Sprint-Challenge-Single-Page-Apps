@@ -52,16 +52,19 @@ export default function EpisodeList(props) {
             <Link to={"/"}>
               Home
             </Link>
-            <Link to={"/locations"}>
-              Locations
-            </Link>
+
             <Link to={"/characters"}>
               Characters
+            </Link>
+
+            <Link to={"/locations"}>
+              Locations
             </Link>
 
             <Link to={"/episodes"}>
               Episodes
             </Link>
+            
           </Buttons>
         </Tabs>
     </MainSection>
