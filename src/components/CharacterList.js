@@ -6,6 +6,10 @@ import SearchForm from "./SearchForm";
 import styled from 'styled-components';
 
 export default function CharacterList() {
+  const MainSection = styled.div`
+  text-align: center;
+  `;
+
   const Tabs = styled.div`
   a {
     display: flex;
@@ -20,6 +24,9 @@ export default function CharacterList() {
 
     a {
     text-decoration: none;
+      &:hover {
+        color: #4dcd32;
+      }
     }
     `;
     
@@ -40,27 +47,32 @@ export default function CharacterList() {
   }, []);
 
   return (
-    <section className="character-list">
+    <div>
+    <MainSection>
       <h2>Character List</h2>
       <Tabs>
-      <Buttons>
-      <Link className="main-buttons" to={"/"}>
-        Home
-      </Link>
-      <Link className="main-buttons" to={"/locations"}>
-        Locations
-      </Link>
-      <Link className="main-buttons" to={"/characters"}>
-        Characters
-      </Link>
-      </Buttons>
-      </Tabs>
+          <Buttons>
+            <Link to={"/"}>
+              Home
+            </Link>
+            <Link to={"/locations"}>
+              Locations
+            </Link>
+            <Link to={"/characters"}>
+              Characters
+            </Link>
 
-
-      <SearchForm search={search} characters={characters} />
-      {filteredData.map(char => {
-        return <CharacterCard key={char.id} character={char} />;
-      })}
-    </section>
+            <Link to={"/episodes"}>
+              Episodes
+            </Link>
+          </Buttons>
+        </Tabs>
+    </MainSection>
+    
+    <SearchForm search={search} characters={characters} />
+    {filteredData.map(char => {
+      return <CharacterCard key={char.id} character={char} />;
+    })}
+    </div>
   );
 }
