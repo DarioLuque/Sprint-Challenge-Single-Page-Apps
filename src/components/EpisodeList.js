@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import LocationCard from "./LocationCard.js";
-import { Link } from "react-router-dom";
+import EpisodeCard from "./EpisodeCard.js";
 import styled from "styled-components"
+import {Link} from "react-router-dom"
 
-export default function LocationsList() {
+export default function EpisodeList(props) {
   const MainSection = styled.div`
   text-align: center;
   `;
@@ -29,16 +29,15 @@ export default function LocationsList() {
     }
     `;
 
-
-  const [locationData, setLocation] = useState([]);
+  const [episode, setEpisode] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://rickandmortyapi.com/api/location/")
+      .get("https://rickandmortyapi.com/api/episode/")
       .then(res => {
         console.log("working", res.data.results);
 
-        setLocation(res.data.results);
+        setEpisode(res.data.results);
       })
 
       .catch(err => console.log(err));
@@ -47,8 +46,8 @@ export default function LocationsList() {
   return (
     <div>
       <MainSection>
-      <h2>Locations</h2>
-      <Tabs>
+        <h2>Episodes</h2>
+        <Tabs>
           <Buttons>
             <Link to={"/"}>
               Home
@@ -65,18 +64,18 @@ export default function LocationsList() {
             <Link to={"/episodes"}>
               Episodes
             </Link>
+            
           </Buttons>
         </Tabs>
-        {locationData.map(location => (
-          <LocationCard
-            name={location.name}
-            type={location.type}
-            dimension={location.dimension}
-          />
-        ))}
     </MainSection>
-
-          
+      <div>{episode.map(episode => (
+        <EpisodeCard
+          episode={episode}
+          name={episode.name}
+          number={episode.id}
+          airDate={episode.air_date}
+        />
+      ))}</div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-
-export default function LocationCard(props) {
+export default function EpisodeCard(props) {
   const Card = styled.div`
     display: flex;
     flex-direction: column;
     margin: 2%;
+
     
   `;
 
@@ -32,11 +32,11 @@ export default function LocationCard(props) {
 
   return (
     <Card>
-      <CardContent>
-      <h3> {props.name} </h3>
-      <p> Type: {props.type} </p>
-      <p> Dimension: {props.dimension} </p>
-      </CardContent>
+     <CardContent> 
+      <h2> {props.name} </h2>
+      <p>Episode: {props.number} </p>
+      <p>Date Aired: {props.airDate} </p>
+      </CardContent>  
     </Card>
   );
 }
